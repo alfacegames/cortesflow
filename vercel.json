@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "unzip -o CorteFlow.zip -d .",
+  "buildCommand": "unzip -o CorteFlow.zip -d . && cp index.html CorteFlow/index.html && cp supabase.js CorteFlow/supabase.js",
   "outputDirectory": "CorteFlow"
 }
