@@ -98,7 +98,7 @@ async function cfPersist(target) {
       barber_id:barberId,working_days:shift.days,opening_time:shift.open,closing_time:shift.close
     });
   }
-  cfTakeSnapshot();
+  cfSnapshot = {services:cfClone(target.services),barbers:cfClone(target.barbers),appointments:cfClone(target.appointments),hours:cfClone(target.hours),barberShifts:cfClone(target.barberShifts)};
 }
 saveDB = function() {
   if (!cfBooted || !cfSnapshot) return;
