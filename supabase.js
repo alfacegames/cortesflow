@@ -32,6 +32,7 @@ function cfMapAppointment(x) {
   return {id:x.id,userId:x.user_id,serviceId:x.service_id,barberId:x.barber_id,date:String(x.appointment_date).slice(0,10),time:cfTime(x.appointment_time),status:x.status,created:x.created_at,duration:x.duration_minutes,price:Number(x.service_price)};
 }
 async function cfLoadSignedInUser(authUser) {
+  await cfLoadPublic();
   const pr = await cfSupabase.from("profiles").select("*").eq("id",authUser.id).maybeSingle();
   if (pr.error) throw pr.error;
   if (!pr.data) throw new Error("Seu perfil ainda não foi criado. Entre em contato com o administrador.");
